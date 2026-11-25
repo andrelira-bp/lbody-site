@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>L Body | Consultoria Fitness Online com Lira</title>
+<meta name="description" content="L Body — consultoria fitness online com Lira, personal trainer, atleta e árbitro de fisiculturismo. Hipertrofia, emagrecimento e transformação corporal com acompanhamento individualizado.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;1,700;1,800&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#C9A45C; --gold-dk:#8C6A2B; --gold-lt:#F1D9A0;
+  --gold-grad:linear-gradient(135deg,#8C6A2B 0%,#E8CE92 45%,#C9A45C 60%,#8C6A2B 100%);
+  --glow:rgba(201,164,92,.32);
+  --bg:#050505; --bg2:#0b0a08; --card:#0f0e0c; --line:#2a2418;
+  --txt:#f5f2ea; --muted:#a8a293; --ink:#14100a;
+  --head:"Barlow Condensed",sans-serif; --body:Montserrat,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:var(--body);font-weight:300;line-height:1.75;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--head);text-transform:uppercase;font-weight:700;font-style:italic;line-height:1;letter-spacing:.01em}
+em{font-style:italic;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.08em}
+.wrap{width:min(1200px,92%);margin-inline:auto}
+section{padding:120px 0;position:relative}
+
+/* NAV */
+header{position:fixed;inset:0 0 auto 0;z-index:50;padding:16px 0;transition:.3s}
+header.solid{background:rgba(5,5,5,.9);backdrop-filter:blur(10px);padding:8px 0;border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo img{height:46px;width:auto}
+nav ul{display:flex;gap:22px;list-style:none}
+nav a{font-size:11px;letter-spacing:.24em;text-transform:uppercase;opacity:.8;transition:.2s;font-weight:500}
+nav a:hover{opacity:1;color:var(--gold)}
+.burger{display:none;background:none;border:0;color:var(--gold);font-size:28px;cursor:pointer}
+.nav-cta{padding:12px 24px!important}
+
+/* BUTTONS */
+.btn{display:inline-block;background:var(--gold-grad);background-size:200% 100%;color:var(--ink);font-family:var(--body);font-weight:600;font-size:12px;padding:19px 40px;text-transform:uppercase;letter-spacing:.2em;transition:.4s;border:1px solid transparent;cursor:pointer;clip-path:polygon(14px 0,100% 0,calc(100% - 14px) 100%,0 100%)}
+.btn:hover{background-position:100% 0;transform:translateY(-2px);filter:drop-shadow(0 10px 24px var(--glow))}
+.btn.ghost{background:none;color:var(--gold);position:relative;clip-path:none;border:1px solid var(--gold)}
+.btn.ghost:hover{background:var(--gold-grad);color:var(--ink)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:130px 0 0;overflow:hidden;
+  background:radial-gradient(ellipse 45% 60% at 72% 55%,rgba(201,164,92,.32),transparent 70%),
+             radial-gradient(ellipse 40% 30% at 10% 100%,rgba(201,164,92,.1),transparent 70%),#050505}
+.hero::before{content:"L BODY";position:absolute;right:-2%;top:50%;transform:translateY(-52%);font-family:var(--head);font-style:italic;font-weight:800;font-size:clamp(180px,32vw,520px);line-height:.8;color:transparent;-webkit-text-stroke:1px rgba(201,164,92,.13);pointer-events:none;white-space:nowrap}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;align-items:end;gap:20px;position:relative;z-index:2}
+.hero-txt{align-self:center;padding-bottom:90px}
+.kicker{display:flex;align-items:center;gap:16px;font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:26px;font-weight:500}
+.kicker::before{content:"";width:56px;height:1px;background:var(--gold)}
+.hero h1{font-size:clamp(46px,7.2vw,104px)}
+.hero p{max-width:500px;margin:28px 0 40px;color:#d8d3c6;font-size:16px}
+.cta{display:flex;gap:16px;flex-wrap:wrap}
+.hero-img{position:relative;align-self:end;display:flex;justify-content:center}
+.hero-img img{width:min(440px,100%);filter:drop-shadow(0 0 60px rgba(201,164,92,.25));-webkit-mask-image:linear-gradient(to bottom,#000 80%,transparent 100%);mask-image:linear-gradient(to bottom,#000 80%,transparent 100%)}
+.hero-tag{position:absolute;left:0;bottom:90px;background:rgba(5,5,5,.8);border:1px solid var(--gold-dk);padding:14px 20px;backdrop-filter:blur(6px);z-index:3}
+.hero-tag b{display:block;font-family:var(--head);font-style:italic;font-size:24px;text-transform:uppercase;color:var(--gold);line-height:1.1}
+.hero-tag span{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+
+/* MARQUEE */
+.marquee{background:var(--gold-grad);color:var(--ink);overflow:hidden;white-space:nowrap;padding:14px 0;position:relative;z-index:3}
+.marquee div{display:inline-block;animation:slide 34s linear infinite;font-family:var(--head);font-style:italic;font-weight:700;font-size:26px;letter-spacing:.08em;text-transform:uppercase}
+.marquee span{margin:0 26px}
+.marquee span::after{content:"//";margin-left:52px;opacity:.55}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* HEAD */
+.sec-head{text-align:center;margin-bottom:68px}
+.sec-head h2{font-size:clamp(38px,5.6vw,72px)}
+.sec-head p{color:var(--muted);margin:18px auto 0;font-size:15px;max-width:620px}
+.tag{display:inline-block;color:var(--gold);font-size:11px;letter-spacing:.4em;text-transform:uppercase;margin-bottom:16px;font-weight:500}
+.sec-head h2::after{content:"";display:block;width:70px;height:3px;background:var(--gold-grad);margin:24px auto 0;transform:skewX(-30deg)}
+
+/* AUTORIDADE */
+.auth{padding:0;background:var(--bg2);border-bottom:1px solid var(--line)}
+.auth .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.auth div{padding:34px 24px;border-left:1px solid var(--line);text-align:center}
+.auth div:last-child{border-right:1px solid var(--line)}
+.auth b{display:block;font-family:var(--head);font-style:italic;font-size:30px;text-transform:uppercase;color:var(--gold);line-height:1.1}
+.auth span{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+
+/* METODOLOGIA */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s}
+.step{padding:44px 30px;border:1px solid var(--line);margin-left:-1px;background:var(--card);transition:.4s;position:relative}
+.step:hover{border-color:var(--gold);z-index:2;transform:translateY(-6px)}
+.step b{font-family:var(--head);font-style:italic;font-size:78px;line-height:.9;color:transparent;-webkit-text-stroke:1px var(--gold);display:block;margin-bottom:20px}
+.step h3{font-size:30px;margin-bottom:12px}
+.step p{color:var(--muted);font-size:14px}
+
+/* SERVIÇOS */
+#servicos{background:var(--bg2)}
+.services{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.svc{background:var(--bg2);padding:34px 24px;transition:.35s;min-height:200px;display:flex;flex-direction:column;justify-content:space-between}
+.svc:hover{background:linear-gradient(160deg,#1e180c,#0b0a08)}
+.svc i{font-style:normal;font-family:var(--head);font-weight:700;color:var(--gold);font-size:18px;letter-spacing:.1em}
+.svc h3{font-size:24px;font-style:normal;font-weight:600;line-height:1.1;margin-top:40px}
+
+/* TRANSFORMAÇÕES */
+.ba-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.ba{background:var(--card);border:1px solid var(--line)}
+.ba-view{position:relative;aspect-ratio:4/5;overflow:hidden;background:#050505}
+.ba-view .img{position:absolute;inset:0;overflow:hidden}
+.ba-view .img img{position:absolute;max-width:none;display:block}
+.ba-grid{align-items:start}
+.ba-view .before{clip-path:inset(0 50% 0 0)}
+.ba-view .ph{position:absolute;top:0;bottom:0;width:50%;display:grid;place-items:center;font-family:var(--head);font-style:italic;font-size:36px;color:#3b3220;letter-spacing:.1em}
+.ba-view .ph.a{left:0}.ba-view .ph.d{right:0;background:rgba(201,164,92,.06)}
+.ba-view .lbl{position:absolute;top:14px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;background:rgba(0,0,0,.7);padding:5px 12px;z-index:3;color:var(--gold)}
+.ba-view .lbl.l{left:14px}.ba-view .lbl.r{right:14px}
+.ba-line{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--gold);z-index:4;pointer-events:none}
+.ba-line::after{content:"⇆";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:38px;height:38px;border-radius:50%;background:var(--gold-grad);color:var(--ink);display:grid;place-items:center;font-size:16px}
+.ba-view input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;z-index:5}
+.ba-info{padding:20px 24px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.ba-info h3{font-size:24px}
+.ba-info span{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.ba-info span:empty{display:none}
+
+/* FOTO NA METODOLOGIA */
+.method-photo{display:grid;grid-template-columns:1.15fr .85fr;margin-top:60px;border:1px solid var(--line);background:var(--card);overflow:hidden}
+.method-photo img{width:100%;height:100%;min-height:360px;max-height:520px;object-fit:cover;object-position:center 35%}
+.method-photo div{padding:50px 44px;align-self:center}
+.method-photo h3{font-size:clamp(32px,3.6vw,48px);margin-bottom:16px}
+.method-photo p{color:var(--muted);font-size:15px;margin-bottom:28px}
+
+/* TRAJETÓRIA */
+#trajetoria{background:var(--bg2)}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.gal figure{position:relative;aspect-ratio:3/4;overflow:hidden;border:1px solid var(--line);background:var(--card)}
+.gal img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .8s}
+.gal figure:hover img{transform:scale(1.05)}
+.gal figure::after{content:"";position:absolute;inset:12px;border:1px solid transparent;transition:.4s;pointer-events:none}
+.gal figure:hover::after{border-color:rgba(201,164,92,.6)}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:70px 26px 24px;background:linear-gradient(to top,rgba(0,0,0,.92),transparent);z-index:2}
+.gal figcaption small{display:block;color:var(--gold);font-size:10px;letter-spacing:.35em;text-transform:uppercase}
+.gal figcaption b{font-family:var(--head);font-style:italic;font-size:28px;text-transform:uppercase;font-weight:700;line-height:1.1}
+.credit{text-align:center;color:var(--muted);font-size:11px;margin-top:22px;letter-spacing:.1em}
+.note{text-align:center;color:var(--muted);font-size:12px;margin-top:30px;letter-spacing:.06em}
+
+/* DEPOIMENTOS */
+#depoimentos{background:var(--bg2)}
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.quote{background:var(--card);border:1px solid var(--line);padding:42px 34px;border-top:3px solid var(--gold)}
+.quote p{font-size:14px;color:#d8d3c6;margin-bottom:24px}
+.quote p::before{content:"“";display:block;font-family:var(--head);font-style:italic;font-size:90px;line-height:.6;color:var(--gold);margin-bottom:14px}
+.quote b{font-family:var(--head);font-style:italic;text-transform:uppercase;letter-spacing:.06em;font-weight:700;font-size:22px}
+.quote span{display:block;color:var(--muted);font-size:12px}
+
+/* APP */
+.app{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.phones{display:flex;justify-content:center;gap:24px;position:relative}
+.phones::before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,var(--glow),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%)}
+.phone{width:210px;aspect-ratio:9/19;border:2px solid var(--gold-dk);border-radius:34px;background:linear-gradient(170deg,#1b160b,#050505);padding:34px 18px 20px;position:relative;z-index:2;background-size:cover;background-position:top}
+.phone:nth-child(2){margin-top:60px}
+.phone::before{content:"";position:absolute;top:12px;left:50%;transform:translateX(-50%);width:60px;height:6px;border-radius:3px;background:#222}
+.phone .bar{height:10px;border-radius:5px;background:#2a2418;margin-bottom:12px}
+.phone .bar.g{background:var(--gold-grad);width:60%}
+.phone .blk{height:70px;border-radius:10px;background:#15120a;border:1px solid var(--line);margin-bottom:12px}
+.phone small{position:absolute;bottom:22px;left:0;right:0;text-align:center;font-size:9px;letter-spacing:.3em;color:#4a3f27;text-transform:uppercase}
+.app h2{font-size:clamp(38px,5vw,64px);margin-bottom:22px}
+.app p{color:#d0cbbc;font-size:15px;margin-bottom:22px}
+.checks{list-style:none;margin-bottom:34px}
+.checks li{padding:10px 0 10px 34px;position:relative;font-size:14px;border-bottom:1px solid var(--line)}
+.checks li::before{content:"";position:absolute;left:0;top:19px;width:18px;height:2px;background:var(--gold-grad)}
+
+/* DIFERENCIAIS */
+#diferenciais{background:var(--bg2)}
+.diffs{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.diff{padding:40px 32px;border:1px solid var(--line);background:var(--card);position:relative;overflow:hidden;transition:.4s}
+.diff::after{content:"";position:absolute;left:0;top:0;height:3px;width:0;background:var(--gold-grad);transition:.5s}
+.diff:hover::after{width:100%}
+.diff:hover{border-color:var(--gold-dk)}
+.diff h3{font-size:30px;margin-bottom:12px}
+.diff p{color:var(--muted);font-size:14px}
+
+/* PLANOS */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+.plan{background:var(--card);border:1px solid var(--line);padding:46px 36px;display:flex;flex-direction:column}
+.plan.hot{border-color:var(--gold);box-shadow:0 0 80px -28px var(--glow);background:linear-gradient(180deg,#1a150a,#0f0e0c);position:relative}
+.badge{align-self:flex-start;font-size:10px;letter-spacing:.3em;text-transform:uppercase;border:1px solid var(--line);color:var(--muted);padding:6px 16px;margin-bottom:20px;font-weight:500}
+.plan.hot .badge{background:var(--gold-grad);border-color:var(--gold);color:var(--ink)}
+.plan h3{font-size:40px}
+.plan .price{font-family:var(--head);font-style:italic;font-weight:700;font-size:34px;text-transform:uppercase;color:var(--gold);margin:10px 0 4px}
+.plan .desc{color:var(--muted);font-size:13px;margin-bottom:24px}
+.plan ul{list-style:none;margin-bottom:32px;flex:1}
+.plan li{padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}
+.plan li::before{content:"◆";color:var(--gold);margin-right:12px;font-size:8px;vertical-align:middle}
+
+/* SOBRE */
+#sobre{background:var(--bg2)}
+.about{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:center}
+.photo{position:relative;width:min(420px,100%);aspect-ratio:4/5;margin-inline:auto;background:radial-gradient(ellipse 70% 60% at 50% 45%,rgba(201,164,92,.3),#0b0a08 75%);border:1px solid var(--gold-dk);overflow:hidden}
+.photo .me{position:absolute;left:0;bottom:0;width:100%;height:100%;object-fit:contain;object-position:center bottom}
+.photo::before{content:"";position:absolute;inset:12px;border:1px solid rgba(201,164,92,.35);z-index:2;pointer-events:none}
+.photo .seal{position:absolute;right:20px;top:20px;width:100px;height:auto;z-index:3;filter:drop-shadow(0 4px 12px rgba(0,0,0,.7))}
+.about h2{font-size:clamp(40px,5vw,66px);margin-bottom:22px}
+.about p{color:#d0cbbc;margin-bottom:18px;font-size:15px}
+.about blockquote{border-left:3px solid var(--gold);padding:6px 0 6px 22px;margin:28px 0 34px;font-family:var(--head);font-style:italic;font-size:26px;line-height:1.2;text-transform:uppercase;font-weight:600}
+
+/* CTA FINAL */
+.final{text-align:center;background:radial-gradient(ellipse 55% 80% at 50% 100%,var(--glow),transparent 70%),#050505;overflow:hidden}
+.final h2{font-size:clamp(38px,6.4vw,92px);max-width:1000px;margin:0 auto 24px}
+.final p{color:var(--muted);font-size:15px;max-width:560px;margin:0 auto 42px}
+
+footer{border-top:1px solid var(--line);padding:50px 0;color:var(--muted);font-size:12px;letter-spacing:.05em}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.foot img{height:44px}
+footer a:hover{color:var(--gold)}
+
+/* WHATS FLUTUANTE */
+.wpp{position:fixed;right:22px;bottom:22px;z-index:60;background:var(--gold-grad);color:var(--ink);font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;padding:15px 22px;box-shadow:0 10px 30px rgba(0,0,0,.6),0 0 30px var(--glow);transition:.3s}
+.wpp:hover{transform:translateY(-3px)}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s,transform .9s}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:1000px){
+  .services{grid-template-columns:repeat(3,1fr)}
+  .steps{grid-template-columns:1fr 1fr}
+}
+@media(max-width:900px){
+  section{padding:84px 0}
+  .hero .wrap{grid-template-columns:1fr}
+  .hero-txt{padding-bottom:20px}
+  .hero-img img{width:min(380px,90%)}
+  .hero-tag{left:5%;bottom:40px}
+  .auth .wrap{grid-template-columns:1fr 1fr}
+  .ba-grid,.quotes,.diffs,.plans{grid-template-columns:1fr 1fr}
+  .app,.about,.method-photo{grid-template-columns:1fr;gap:50px}
+  .method-photo{gap:0}
+  .method-photo div{padding:36px 28px}
+  .gal{grid-template-columns:1fr 1fr}
+  .burger{display:block;z-index:60}
+  nav ul{position:fixed;inset:0 0 0 auto;width:75%;background:#050505;flex-direction:column;justify-content:center;padding:40px;transform:translateX(100%);transition:.35s;border-left:1px solid var(--line)}
+  nav ul.open{transform:none}
+  nav a{font-size:14px}
+  .photo .seal{width:70px}
+}
+@media(max-width:640px){
+  .services{grid-template-columns:1fr 1fr}
+  .steps,.ba-grid,.quotes,.diffs,.plans,.gal{grid-template-columns:1fr}
+  .logo img{height:38px}
+  .phone{width:150px}
+  .wpp{right:12px;bottom:12px;padding:13px 16px}
+}
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap nav">
+    <a href="#" class="logo"><img src="logo-lbody.png" alt="L Body"></a>
+    <nav>
+      <ul id="menu">
+        <li><a href="#metodo">Método</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#transformacoes">Transformações</a></li>
+        <li><a href="#app">Aplicativo</a></li>
+        <li><a href="#planos">Planos</a></li>
+        <li><a href="#sobre">Lira</a></li>
+        <li><a href="#trajetoria">Trajetória</a></li>
+      </ul>
+    </nav>
+    <a class="btn nav-cta" data-wpp href="#">Quero ser aluno</a>
+    <button class="burger" id="burger" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-txt">
+      <div class="kicker">Consultoria fitness online</div>
+      <h1>Transformação é <em>estratégia</em>, disciplina e <em>consistência</em></h1>
+      <p>Treinamento individualizado, acompanhamento de perto e uma metodologia construída por um atleta de fisiculturismo. Resultado real, e que se sustenta.</p>
+      <div class="cta">
+        <a class="btn" data-wpp href="#">Começar minha transformação</a>
+        <a class="btn ghost" href="#transformacoes">Ver resultados</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="lira.webp" alt="Lira, personal trainer e atleta de fisiculturismo">
+      <div class="hero-tag"><b>Lira</b><span>Personal · Atleta · Árbitro</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee"><div id="mq"></div></div>
+
+<!-- AUTORIDADE -->
+<section class="auth">
+  <div class="wrap">
+    <div><b>Atleta</b><span>de fisiculturismo</span></div>
+    <div><b>Árbitro</b><span>de fisiculturismo</span></div>
+    <div><b>100%</b><span>individualizado</span></div>
+    <div><b>Online</b><span>onde você estiver</span></div>
+  </div>
+</section>
+
+<!-- METODOLOGIA -->
+<section id="metodo">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="tag">Metodologia</span>
+      <h2>Como funciona o <em>acompanhamento</em></h2>
+      <p>Cada pessoa tem necessidades, objetivos e desafios diferentes. Por isso nada aqui é padronizado.</p>
+    </div>
+    <div class="steps">
+      <div class="step rv"><b>01</b><h3>Diagnóstico</h3><p>Entendo seu objetivo, sua rotina, seu histórico e suas dificuldades para traçar o ponto de partida.</p></div>
+      <div class="step rv"><b>02</b><h3>Estratégia</h3><p>Treino e orientações montados sob medida, respeitando a sua individualidade.</p></div>
+      <div class="step rv"><b>03</b><h3>Monitoramento</h3><p>Acompanho sua evolução física de perto, com suporte direto pelo WhatsApp.</p></div>
+      <div class="step rv"><b>04</b><h3>Evolução</h3><p>Ajustes constantes para melhorar a composição corporal e manter o resultado no longo prazo.</p></div>
+    </div>
+    <div class="method-photo rv">
+      <img src="treino.jpg" alt="Lira orientando um aluno durante o treino" loading="lazy">
+      <div>
+        <span class="tag">Acompanhamento de perto</span>
+        <h3>Atenção a <em>cada detalhe</em> da sua evolução</h3>
+        <p>Execução, carga, técnica e progressão acompanhadas com olhar de quem vive o treino todos os dias. Seja presencialmente ou online, você nunca treina sozinho.</p>
+        <a class="btn" data-wpp href="#">Quero esse acompanhamento</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="tag">O que você recebe</span>
+      <h2>Tudo para o seu <em>resultado</em></h2>
+    </div>
+    <div class="services" id="services"></div>
+  </div>
+</section>
+
+<!-- TRANSFORMAÇÕES -->
+<section id="transformacoes">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="tag">Antes e depois</span>
+      <h2>Transformações <em>reais</em></h2>
+      <p>Arraste para comparar. Cada resultado é fruto de estratégia, disciplina e consistência.</p>
+    </div>
+    <div class="ba-grid" id="ba"></div>
+    <p class="note">Resultados variam de pessoa para pessoa e dependem de dedicação e consistência.</p>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section id="depoimentos">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="tag">Depoimentos</span>
+      <h2>Quem treina, <em>aprova</em></h2>
+    </div>
+    <div class="quotes" id="quotes"></div>
+  </div>
+</section>
+
+<!-- APP -->
+<section id="app">
+  <div class="wrap app">
+    <div class="phones rv" id="phones"></div>
+    <div class="rv">
+      <span class="tag">Aplicativo MFIT</span>
+      <h2>Seu treino e sua evolução <em>na palma da mão</em></h2>
+      <p>Seu acompanhamento acontece no aplicativo MFIT: treino, execução e evolução organizados em um só lugar, para você treinar com clareza e eu acompanhar cada detalhe.</p>
+      <ul class="checks">
+        <li>Treino individualizado sempre à mão</li>
+        <li>Monitoramento da sua evolução física</li>
+        <li>Acompanhamento próximo e contínuo</li>
+        <li>Suporte direto pelo WhatsApp</li>
+      </ul>
+      <a class="btn" data-wpp href="#">Quero conhecer</a>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section id="diferenciais">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="tag">Diferenciais</span>
+      <h2>Por que a <em>L Body</em></h2>
+    </div>
+    <div class="diffs">
+      <div class="diff rv"><h3>Experiência de atleta</h3><p>Metodologia construída na prática, a partir da trajetória no fisiculturismo.</p></div>
+      <div class="diff rv"><h3>Individualização total</h3><p>Seu plano respeita sua rotina, seu corpo e o seu objetivo. Nada de treino genérico.</p></div>
+      <div class="diff rv"><h3>Resultados sustentáveis</h3><p>Foco em evolução que se mantém, melhorando a composição corporal de verdade.</p></div>
+      <div class="diff rv"><h3>Acompanhamento próximo</h3><p>Monitoramento da evolução e suporte direto pelo WhatsApp.</p></div>
+      <div class="diff rv"><h3>Orientação completa</h3><p>Treino, estratégia e orientação sobre suplementação em um só acompanhamento.</p></div>
+      <div class="diff rv"><h3>Tecnologia a seu favor</h3><p>Aplicativo MFIT para organizar treino e evolução.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANOS -->
+<section id="planos">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="tag">Planos de consultoria</span>
+      <h2>Escolha o seu <em>plano</em></h2>
+      <p>Vagas limitadas para manter a qualidade do acompanhamento individual.</p>
+    </div>
+    <div class="plans" id="plans"></div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="wrap about">
+    <div class="photo rv">
+      <img class="me" src="lira.webp" alt="Lira">
+      <img class="seal" src="selo-lira.png" alt="Selo André Lira">
+    </div>
+    <div class="rv">
+      <span class="tag">Quem vai te acompanhar</span>
+      <h2>Sou o <em>Lira</em></h2>
+      <p>Personal trainer, atleta e árbitro de fisiculturismo, especialista em transformação corporal e performance física.</p>
+      <p>Minha missão é transformar vidas através do treinamento físico, da disciplina e de estratégias individualizadas. Acredito que cada pessoa possui necessidades, objetivos e desafios diferentes, por isso meu trabalho é desenvolvido de forma personalizada, respeitando a individualidade de cada aluno.</p>
+      <p>Minha experiência profissional e minha trajetória como atleta são a base de uma metodologia focada em resultados reais e sustentáveis.</p>
+      <ul class="checks">
+        <li>Personal trainer</li>
+        <li>Atleta de fisiculturismo</li>
+        <li>Árbitro de fisiculturismo</li>
+        <li>Especialista em transformação corporal e performance física</li>
+      </ul>
+      <blockquote>Transformação é o resultado de estratégia, disciplina e consistência.</blockquote>
+      <div class="cta">
+        <a class="btn" data-wpp href="#">Falar com o Lira</a>
+        <a class="btn ghost" data-ig href="#" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAJETÓRIA -->
+<section id="trajetoria">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="tag">Trajetória</span>
+      <h2>Dentro e fora do <em>palco</em></h2>
+      <p>Atleta nos campeonatos e árbitro de fisiculturismo: experiência de quem conhece o esporte de todos os lados.</p>
+    </div>
+    <div class="gal">
+      <figure class="rv"><img src="campeonato-1.jpg" alt="Lira em campeonato de fisiculturismo" loading="lazy"><figcaption><small>Atleta</small><b>Campeonato</b></figcaption></figure>
+      <figure class="rv"><img src="campeonato-2.jpg" alt="Lira em competição de fisiculturismo" loading="lazy"><figcaption><small>Atleta</small><b>Competição</b></figcaption></figure>
+      <figure class="rv"><img src="arbitro.jpg" alt="Lira, árbitro de fisiculturismo" loading="lazy"><figcaption><small>Arbitragem</small><b>Árbitro de fisiculturismo</b></figcaption></figure>
+    </div>
+    <p class="credit">Fotos de campeonato: Osmarina Moraes Photography</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="final" id="contato">
+  <div class="wrap rv">
+    <span class="tag">O próximo passo</span>
+    <h2>Chegou a hora de <em>transformar</em> o seu corpo</h2>
+    <p>Fale agora com o Lira pelo WhatsApp e descubra qual consultoria é ideal para o seu objetivo.</p>
+    <a class="btn" data-wpp href="#">Quero minha consultoria</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <img src="logo-lbody.png" alt="L Body">
+    <div>© 2026 L Body · Lira. Todos os direitos reservados.</div>
+    <div><a data-wpp href="#">WhatsApp</a> · <a data-ig href="#" target="_blank" rel="noopener">Instagram</a></div>
+  </div>
+</footer>
+
+<a class="wpp" data-wpp href="#">WhatsApp</a>
+
+<script>
+/* ================= EDITE AQUI =================
+   Troque os valores abaixo e salve. Nada mais precisa ser mexido. */
+const WHATS = "5500000000000";   // WhatsApp com DDI+DDD, só números. Ex: 5511999999999
+const MENSAGEM = "Olá Lira! Vim pelo site e quero saber mais sobre a consultoria L Body.";
+const INSTAGRAM = "https://instagram.com/";  // link completo do seu Instagram
+
+const faixa = ["Hipertrofia","Emagrecimento","Definição muscular","Performance","Disciplina","Consistência"];
+
+const servicos = ["Consultoria fitness online","Hipertrofia e ganho de massa muscular","Emagrecimento e definição muscular","Transformação corporal","Treinamento individualizado","Melhora da composição corporal","Orientação sobre suplementação","Acompanhamento individualizado","Monitoramento da evolução física","Suporte direto pelo WhatsApp"];
+
+// Antes e depois. "img" = foto única com antes à esquerda e depois à direita (tipo "lr"),
+// ou colagem 2x2 com antes em cima e depois embaixo (tipo "quad"). "y" ajusta o enquadramento vertical.
+// Também aceita fotos separadas: antes:"a.jpg", depois:"b.jpg". "tempo" é opcional (ex: "6 meses").
+const transformacoes = [
+  {nome:"Silvia",       tempo:"", antes:"silvia-antes.jpg",  depois:"silvia-depois.jpg"},
+  {nome:"Antônio",      tempo:"", antes:"antonio-antes.jpg", depois:"antonio-depois.jpg"},
+  {nome:"Maxwell",      tempo:"", antes:"maxwell-antes.jpg", depois:"maxwell-depois.jpg"},
+  {nome:"Chris Ignatz", tempo:"", antes:"chris-antes.jpg",   depois:"chris-depois.jpg"}
+];
+
+// Depoimentos reais dos seus alunos (troque os textos de exemplo).
+const depoimentos = [
+  {texto:"Escreva aqui o depoimento real de um aluno, contando o resultado que teve com a consultoria.", nome:"Nome do aluno", info:"Resultado / tempo de consultoria"},
+  {texto:"Outro depoimento curto e direto. Prints de conversa no WhatsApp também funcionam muito bem.", nome:"Nome do aluno", info:"Resultado / tempo de consultoria"},
+  {texto:"Mais um depoimento. Quanto mais específico o resultado, mais convincente.", nome:"Nome do aluno", info:"Resultado / tempo de consultoria"}
+];
+
+// Prints do aplicativo MFIT (opcional): ex ["app1.png","app2.png"]. Vazio = mostra celular ilustrativo.
+const appPrints = [];
+
+const planos = [
+  {badge:"Essencial", nome:"Mensal", preco:"Consulte", desc:"Para começar com flexibilidade.", itens:["Treino individualizado","Suporte pelo WhatsApp","Monitoramento da evolução"], btn:"Quero este", hot:false},
+  {badge:"Mais pedido", nome:"Trimestral", preco:"Consulte", desc:"Tempo ideal para ver a transformação acontecer.", itens:["Tudo do plano mensal","Orientação sobre suplementação","Ajustes estratégicos contínuos","Acompanhamento pelo app MFIT"], btn:"Quero começar agora", hot:true},
+  {badge:"Premium", nome:"Semestral", preco:"Consulte", desc:"Para quem quer resultado consistente de verdade.", itens:["Tudo do plano trimestral","Maior economia por mês","Acompanhamento prioritário"], btn:"Quero este", hot:false}
+];
+/* =============================================== */
+
+const $=s=>document.querySelector(s);
+const wppUrl=`https://wa.me/${WHATS}?text=${encodeURIComponent(MENSAGEM)}`;
+document.querySelectorAll("[data-wpp]").forEach(a=>{a.href=wppUrl;a.target="_blank";a.rel="noopener"});
+document.querySelectorAll("[data-ig]").forEach(a=>a.href=INSTAGRAM);
+
+$("#mq").innerHTML=faixa.map(t=>`<span>${t}</span>`).join("").repeat(6);
+
+$("#services").innerHTML=servicos.map((s,i)=>`<div class="svc rv"><i>${String(i+1).padStart(2,"0")}</i><h3>${s}</h3></div>`).join("");
+
+const A=0.55; // proporção do cartão (largura/altura); a foto inteira cabe sem cortar
+const camada=(t,lado)=>{ // lado 0 = antes, 1 = depois. Devolve o <img> já posicionado.
+  if(t.img){
+    const r=t.r||1;
+    if(t.tipo==="quad"){ // colagem 2x2: antes em cima, depois embaixo (quadrante esquerdo)
+      const top=100*((1/A-1)/2-lado)/(1/A);
+      return `<img src="${t.img}" alt="${t.nome}" style="left:0;top:${top}%;width:200%;clip-path:inset(${lado?'50%':'0'} 50% ${lado?'0':'50%'} 0)">`;
+    }
+    const left=100*(0.5-(lado?3:1)*r/(4*A));
+    return `<img src="${t.img}" alt="${t.nome}" style="left:${left}%;top:0;height:100%;width:${100*r/A}%;clip-path:inset(0 ${lado?'0':'50%'} 0 ${lado?'50%':'0'})">`;
+  }
+  const u=lado?t.depois:t.antes; return u?`<img src="${u}" alt="${t.nome}" style="left:0;top:0;width:100%;height:100%;object-fit:cover" loading="lazy">`:"";
+};
+$("#ba").innerHTML=transformacoes.map((t,i)=>{
+  const sd=camada(t,1), sa=camada(t,0);
+  return `
+  <div class="ba rv">
+    <div class="ba-view">
+      ${sd?`<div class="img">${sd}</div>`:`<div class="ph d">DEPOIS</div>`}
+      ${sa?`<div class="img before">${sa}</div>`:`<div class="ph a">ANTES</div>`}
+      <span class="lbl l">Antes</span><span class="lbl r">Depois</span>
+      <div class="ba-line"></div>
+      <input type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois">
+    </div>
+    <div class="ba-info"><h3>${t.nome}</h3><span>${t.tempo||""}</span></div>
+  </div>`;}).join("");
+document.querySelectorAll(".ba-view").forEach(v=>{
+  const inp=v.querySelector("input"),line=v.querySelector(".ba-line"),b=v.querySelector(".before"),a=v.querySelector(".ph.a");
+  const set=()=>{const p=inp.value;line.style.left=p+"%";if(b)b.style.clipPath=`inset(0 ${100-p}% 0 0)`;if(a)a.style.clipPath=`inset(0 ${100-p}% 0 0)`;};
+  inp.oninput=set;
+});
+
+$("#quotes").innerHTML=depoimentos.map(d=>`<div class="quote rv"><p>${d.texto}</p><b>${d.nome}</b><span>${d.info}</span></div>`).join("");
+
+$("#phones").innerHTML=(appPrints.length?appPrints:[0,0]).map(p=>p?`<div class="phone" style="background-image:url('${p}')"></div>`:`<div class="phone"><div class="bar g"></div><div class="bar"></div><div class="blk"></div><div class="blk"></div><div class="blk"></div><small>MFIT</small></div>`).join("");
+
+$("#plans").innerHTML=planos.map(p=>`
+  <div class="plan ${p.hot?"hot":""} rv">
+    <span class="badge">${p.badge}</span><h3>${p.nome}</h3>
+    <div class="price">${p.preco}</div><p class="desc">${p.desc}</p>
+    <ul>${p.itens.map(i=>`<li>${i}</li>`).join("")}</ul>
+    <a class="btn ${p.hot?"":"ghost"}" data-wpp href="${wppUrl}" target="_blank" rel="noopener">${p.btn}</a>
+  </div>`).join("");
+
+// menu
+const menu=$("#menu");
+$("#burger").onclick=()=>menu.classList.toggle("open");
+menu.onclick=e=>{if(e.target.tagName==="A")menu.classList.remove("open")};
+addEventListener("scroll",()=>$("header").classList.toggle("solid",scrollY>40));
+
+// reveal
+const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}}),{threshold:.12});
+document.querySelectorAll(".rv").forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
