@@ -154,8 +154,10 @@ nav a:hover{opacity:1;color:var(--gold)}
 .app{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
 .phones{display:flex;justify-content:center;gap:24px;position:relative}
 .phones::before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,var(--glow),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%)}
+.phones .phone{width:180px;aspect-ratio:488/779;border:0;background-size:100% 100%;padding:0;border-radius:30px;box-shadow:0 24px 50px -18px #000;}
 .phone{width:210px;aspect-ratio:9/19;border:2px solid var(--gold-dk);border-radius:34px;background:linear-gradient(170deg,#1b160b,#050505);padding:34px 18px 20px;position:relative;z-index:2;background-size:cover;background-position:top}
-.phone:nth-child(2){margin-top:60px}
+.phones .phone{align-self:center}.phones .phone:nth-child(1),.phones .phone:nth-child(3){width:160px;opacity:.92}.phones .phone:nth-child(2){width:270px;margin:0;z-index:3;box-shadow:0 30px 60px -16px #000,0 0 0 1px #8a6d2f}
+@media(max-width:900px){.phones{gap:10px}.phones .phone:nth-child(1),.phones .phone:nth-child(3){width:25%}.phones .phone:nth-child(2){width:46%}}
 .phone::before{content:"";position:absolute;top:12px;left:50%;transform:translateX(-50%);width:60px;height:6px;border-radius:3px;background:#222}
 .phone .bar{height:10px;border-radius:5px;background:#2a2418;margin-bottom:12px}
 .phone .bar.g{background:var(--gold-grad);width:60%}
@@ -169,6 +171,8 @@ nav a:hover{opacity:1;color:var(--gold)}
 
 /* DIFERENCIAIS */
 #diferenciais{background:var(--bg2)}
+.app-feats{margin-top:72px}.app-feats .diff{padding:30px 26px}.app-feats .diff h3{font-size:24px}
+@media(max-width:900px){.app-feats .diffs{grid-template-columns:1fr 1fr}}@media(max-width:560px){.app-feats .diffs{grid-template-columns:1fr}}
 .diffs{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .diff{padding:40px 32px;border:1px solid var(--line);background:var(--card);position:relative;overflow:hidden;transition:.4s}
 .diff::after{content:"";position:absolute;left:0;top:0;height:3px;width:0;background:var(--gold-grad);transition:.5s}
@@ -248,6 +252,16 @@ footer a:hover{color:var(--gold)}
   .phone{width:150px}
   .wpp{right:12px;bottom:12px;padding:13px 16px}
 }
+/* BOTÕES ARREDONDADOS */
+.btn,.btn.ghost,.nav-cta,.wpp,button.btn{clip-path:none!important;border-radius:14px}
+.btn.ghost,.plan .btn{border-radius:14px}
+/* JANELAS ARREDONDADAS (premium) */
+.steps{gap:16px}.step{margin-left:0;border-radius:22px}
+.services{gap:12px;background:transparent;border:0}.svc{border-radius:20px;border:1px solid var(--line)}
+.diff,.plan,.quote,.ba,.method-photo,.gal figure{border-radius:22px;overflow:hidden}
+.quote{border-top-width:1px}
+.badge{border-radius:10px}
+.diff::after{border-radius:3px}
 </style>
 </head>
 <body>
@@ -353,7 +367,7 @@ footer a:hover{color:var(--gold)}
 </section>
 
 <!-- DEPOIMENTOS -->
-<section id="depoimentos">
+<section id="depoimentos" hidden style="display:none"><!-- oculto por enquanto -->
   <div class="wrap">
     <div class="sec-head rv">
       <span class="tag">Depoimentos</span>
@@ -368,9 +382,9 @@ footer a:hover{color:var(--gold)}
   <div class="wrap app">
     <div class="phones rv" id="phones"></div>
     <div class="rv">
-      <span class="tag">Aplicativo MFIT</span>
+      <span class="tag">Aplicativo L Body</span>
       <h2>Seu treino e sua evolução <em>na palma da mão</em></h2>
-      <p>Seu acompanhamento acontece no aplicativo MFIT: treino, execução e evolução organizados em um só lugar, para você treinar com clareza e eu acompanhar cada detalhe.</p>
+      <p>Seu acompanhamento acontece no aplicativo L Body: treino com demonstração de cada exercício, execução guiada, ranking, agenda e evolução organizados em um só lugar, para você treinar com clareza e eu acompanhar cada detalhe.</p>
       <ul class="checks">
         <li>Treino individualizado sempre à mão</li>
         <li>Monitoramento da sua evolução física</li>
@@ -378,6 +392,19 @@ footer a:hover{color:var(--gold)}
         <li>Suporte direto pelo WhatsApp</li>
       </ul>
       <a class="btn" data-wpp href="#">Quero conhecer</a>
+    </div>
+  </div>
+  <div class="wrap app-feats">
+    <div class="diffs">
+      <div class="diff rv"><h3>Treino com demonstração</h3><p>Cada exercício com imagem em movimento, séries, carga e intervalo. Bi-set, tri-set, pirâmide e cadência explicados no próprio treino.</p></div>
+      <div class="diff rv"><h3>Execução guiada</h3><p>Cronômetro do treino, descanso com aviso sonoro e marcação de cada exercício concluído.</p></div>
+      <div class="diff rv"><h3>Feedback semanal</h3><p>Toda semana você conta como foi: sono, energia, dificuldades e evolução. Eu respondo e ajusto o plano.</p></div>
+      <div class="diff rv"><h3>Acompanhamento de perto</h3><p>Chat direto comigo, avisos dos seus compromissos e histórico dos treinos realizados.</p></div>
+      <div class="diff rv"><h3>Evolução física</h3><p>Avaliações, medidas, fotos de progresso e metas registradas para você ver o caminho percorrido.</p></div>
+      <div class="diff rv"><h3>Alimentação</h3><p>Plano alimentar e orientações nutricionais acessíveis dentro do app, junto com o treino.</p></div>
+      <div class="diff rv"><h3>Agenda e horários fixos</h3><p>Seus treinos presenciais e horários fixos da semana, com alerta individual.</p></div>
+      <div class="diff rv"><h3>Ranking e conquistas</h3><p>Pontos, níveis, sequência de treinos e ranking do time para manter a motivação em alta.</p></div>
+      <div class="diff rv"><h3>Três idiomas</h3><p>Português, inglês e espanhol. Instale no celular como um app e use no idioma que preferir.</p></div>
     </div>
   </div>
 </section>
@@ -395,7 +422,7 @@ footer a:hover{color:var(--gold)}
       <div class="diff rv"><h3>Resultados sustentáveis</h3><p>Foco em evolução que se mantém, melhorando a composição corporal de verdade.</p></div>
       <div class="diff rv"><h3>Acompanhamento próximo</h3><p>Monitoramento da evolução e suporte direto pelo WhatsApp.</p></div>
       <div class="diff rv"><h3>Orientação completa</h3><p>Treino, estratégia e orientação sobre suplementação em um só acompanhamento.</p></div>
-      <div class="diff rv"><h3>Tecnologia a seu favor</h3><p>Aplicativo MFIT para organizar treino e evolução.</p></div>
+      <div class="diff rv"><h3>Tecnologia a seu favor</h3><p>Aplicativo L Body para organizar treino, agenda e evolução.</p></div>
     </div>
   </div>
 </section>
@@ -480,9 +507,9 @@ footer a:hover{color:var(--gold)}
 <script>
 /* ================= EDITE AQUI =================
    Troque os valores abaixo e salve. Nada mais precisa ser mexido. */
-const WHATS = "5500000000000";   // WhatsApp com DDI+DDD, só números. Ex: 5511999999999
+const WHATS = "5511981273676";   // WhatsApp com DDI+DDD, só números. Ex: 5511999999999
 const MENSAGEM = "Olá Lira! Vim pelo site e quero saber mais sobre a consultoria L Body.";
-const INSTAGRAM = "https://instagram.com/";  // link completo do seu Instagram
+const INSTAGRAM = "https://www.instagram.com/andrelira.personal";  // link completo do seu Instagram
 
 const faixa = ["Hipertrofia","Emagrecimento","Definição muscular","Performance","Disciplina","Consistência"];
 
@@ -505,12 +532,12 @@ const depoimentos = [
   {texto:"Mais um depoimento. Quanto mais específico o resultado, mais convincente.", nome:"Nome do aluno", info:"Resultado / tempo de consultoria"}
 ];
 
-// Prints do aplicativo MFIT (opcional): ex ["app1.png","app2.png"]. Vazio = mostra celular ilustrativo.
-const appPrints = [];
+// Capturas do aplicativo L Body (dados fictícios): ex ["app1.png","app2.png"]. Vazio = mostra celular ilustrativo.
+const appPrints = ["app-inicio.png","app-treino.png","app-ranking.png"];
 
 const planos = [
   {badge:"Essencial", nome:"Mensal", preco:"Consulte", desc:"Para começar com flexibilidade.", itens:["Treino individualizado","Suporte pelo WhatsApp","Monitoramento da evolução"], btn:"Quero este", hot:false},
-  {badge:"Mais pedido", nome:"Trimestral", preco:"Consulte", desc:"Tempo ideal para ver a transformação acontecer.", itens:["Tudo do plano mensal","Orientação sobre suplementação","Ajustes estratégicos contínuos","Acompanhamento pelo app MFIT"], btn:"Quero começar agora", hot:true},
+  {badge:"Mais pedido", nome:"Trimestral", preco:"Consulte", desc:"Tempo ideal para ver a transformação acontecer.", itens:["Tudo do plano mensal","Orientação sobre suplementação","Ajustes estratégicos contínuos","Acompanhamento pelo app L Body"], btn:"Quero começar agora", hot:true},
   {badge:"Premium", nome:"Semestral", preco:"Consulte", desc:"Para quem quer resultado consistente de verdade.", itens:["Tudo do plano trimestral","Maior economia por mês","Acompanhamento prioritário"], btn:"Quero este", hot:false}
 ];
 /* =============================================== */
@@ -558,7 +585,7 @@ document.querySelectorAll(".ba-view").forEach(v=>{
 
 $("#quotes").innerHTML=depoimentos.map(d=>`<div class="quote rv"><p>${d.texto}</p><b>${d.nome}</b><span>${d.info}</span></div>`).join("");
 
-$("#phones").innerHTML=(appPrints.length?appPrints:[0,0]).map(p=>p?`<div class="phone" style="background-image:url('${p}')"></div>`:`<div class="phone"><div class="bar g"></div><div class="bar"></div><div class="blk"></div><div class="blk"></div><div class="blk"></div><small>MFIT</small></div>`).join("");
+$("#phones").innerHTML=(appPrints.length?appPrints:[0,0]).map(p=>p?`<div class="phone" style="background-image:url('${p}')"></div>`:`<div class="phone"><div class="bar g"></div><div class="bar"></div><div class="blk"></div><div class="blk"></div><div class="blk"></div><small>L Body</small></div>`).join("");
 
 $("#plans").innerHTML=planos.map(p=>`
   <div class="plan ${p.hot?"hot":""} rv">
